@@ -1,6 +1,9 @@
-# IntelligentTrafficControl
+# Intelligent Traffic Control
 
 This project consists in a traffic signal or semaphore, controlled by an Intel Edison board through a set of electromechanical relays that allow the use of 12 Volt lights. The Intel Edison board runs a customized Poky Linux distribution created with Yocto Project tools that includes the Open Source libraries MRAA and OpenCV to control the board's GPIOs and to process video, respectively, and the Python programming language to run a single application that captures video from two USB cameras, detects motion objects in the visual area and computes the corresponding signal change routines, accordingly to the programmed logic for the traffic conditions. The light changes are commanded through GPIOs and processed video is then transmitted via WiFi through a local web server also generated and controlled by the main application.
+
 The motion detection is achieved using the OpenCV library through a successive process of background subtraction, frame to frame comparison to detect motion objects, and object discrimination based on image size.
+
 The light changing control consists on a base time-controlled routine, that commands a periodic light change under low-to zero traffic conditions. The presence of a vehicle in any of the concurrent roads triggers a request for a light change, and the sum of all the requests in each of the roads is taken in to account to determine if one of the roads should have priority over the other, if there is no need for a light change (for example, if there are no cars waiting to cross in one the roads or if they cannot cross due a traffic stall), or if the change interval should be long enough to allow for higher vehicle speeds, and any other consideration that may be added to the main program.
+
 The processed video is transmitted to a python-based simple HTTP web server and then accessed by a remote client connected to the same network as the Intel Edison board.
