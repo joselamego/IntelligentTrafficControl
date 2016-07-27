@@ -539,7 +539,7 @@ def main():
 
     try:
         server = HTTPServer(('', 8080), cam_handler)
-        print "I: Server started"
+        print "I: Server started at %s:8080/index.html" %serverIp
         server.serve_forever()
     except KeyboardInterrupt:
         cameras[0].release()
