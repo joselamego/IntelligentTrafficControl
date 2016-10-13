@@ -31,17 +31,6 @@
 # - numpy
 # - datetime
 # - ntplib (for time-zone synchronization)
-#
-
-# ************** USAGE ****************************
-#
-# motion_detector.py --video videos/example_01.mp4
-#
-# -The minimum size for a moving object to be
-# detected as valid is set in def_minArea
-# -The time interval between light changes is set
-# in lap_period_sec
-#
 
 # ******* import the necessary packages ***********
 import argparse
